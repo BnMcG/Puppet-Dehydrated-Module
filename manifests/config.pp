@@ -21,7 +21,7 @@ class dehydrated::config {
   } ->
 
   # Ensure that Dehydrated is registered with the Let's Encrypt servers
-  exec { "/bin/sh ${dehydrated::etc_dir}/dehydrated --register --accept-terms": 
+  exec { "/bin/bash ${dehydrated::etc_dir}/dehydrated --register --accept-terms": 
     user => $dehydrated::user
   }
 }
