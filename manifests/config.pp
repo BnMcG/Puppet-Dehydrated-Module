@@ -5,4 +5,12 @@ class dehydrated::config {
     owner => $dehydrated::user,
     group => $dehydrated::group
   }
+
+  # Ensure a hooks directory exists. Any hooks are stored here
+  file { "${dehydrated::home_directory}/hooks": 
+    ensure => directory,
+    owner => $dehydrated::user,
+    group => $dehydrated::group,
+    recurse => true
+  }
 }
