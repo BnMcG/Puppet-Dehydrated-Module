@@ -13,5 +13,4 @@ class dehydrated::repository {
     source => 'https://github.com/lukas2511/dehydrated.git',
     revision => 'master'
   }
-
 }

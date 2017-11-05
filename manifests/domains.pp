@@ -3,6 +3,6 @@ class dehydrated::domains {
   file { "${dehydrated::home_directory}/domains.txt":
     ensure => present,
     owner => $dehydrated::user,
-    group => 'nogroup'
+    group => $dehydrated::group
   }
 }
