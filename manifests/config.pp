@@ -15,13 +15,13 @@ class dehydrated::config {
   }
 
   # Ensure that Dehydrated is executable
-  file { "${dehydrated::etc_dir}/dehydrated":
+  file { "${dehydrated::etc_directory}/dehydrated":
     ensure => file,
     mode => '0755'
   } ->
 
   # Ensure that Dehydrated is registered with the Let's Encrypt servers
-  exec { "/bin/bash ${dehydrated::etc_dir}/dehydrated --register --accept-terms": 
+  exec { "/bin/bash ${dehydrated::etc_directory}/dehydrated --register --accept-terms": 
     user => $dehydrated::user,
     logoutput => true
   }
