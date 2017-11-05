@@ -4,8 +4,9 @@ class dehydrated (
   String  $etc_directory,
   String  $home_directory
 ) {
-  class { 'dehydrated::user': } ->
-  class { 'dehydrated::repository': } ->
-  class { 'dehydrated::filesystem': } ->
-  class { 'dehydrated::domains': }
+  # Include the classes required to setup Dehydrated
+  Class['dehydrated::user'] ->
+  Class['dehydrated::repository'] ->
+  Class['dehydrated::filesystem'] ->
+  Class['dehydrated::domains']
 }
