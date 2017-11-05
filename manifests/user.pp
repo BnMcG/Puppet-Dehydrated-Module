@@ -4,6 +4,6 @@ class dehydrated::user {
     ensure => present,
     home => '/etc/dehydrated',
     system => true,
-    shell => '/usr/bin/nologin'
+    shell => '/usr/sbin/nologin'
   }
 }
