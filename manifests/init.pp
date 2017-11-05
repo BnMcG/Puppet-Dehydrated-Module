@@ -1,8 +1,11 @@
 class dehydrated {
   $user = 'dehydrated'
-  $dehydrated_home = '/etc/dehydrated'
+
+  $etc_directory = '/etc/dehydrated'
+  $home_directory = '/home/dehydrated'
 
   class { 'dehydrated::user': } ->
   class { 'dehydrated::repository': } ->
-  class { 'dehydrated::filesystem': }
+  class { 'dehydrated::filesystem': } ->
+  class { 'dehydrated::domains': }
 }

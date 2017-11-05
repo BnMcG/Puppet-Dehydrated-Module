@@ -7,7 +7,7 @@ class dehydrated::repository {
   } ->
 
   # Clone the repository
-  vcsrepo { '/etc/dehydrated': 
+  vcsrepo { $dehydrated::etc_directory: 
     ensure => latest,
     provider => git,
     source => 'https://github.com/lukas2511/dehydrated.git',
