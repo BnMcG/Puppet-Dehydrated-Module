@@ -3,6 +3,7 @@ class dehydrated::user {
   user { $dehydrated::user: 
     ensure => present,
     home => '/etc/dehydrated',
-    system => true
+    system => true,
+    shell => '/usr/bin/nologin'
   }
 }
