@@ -1,5 +1,0 @@
-dehydrated::user: dehydrated
-dehydrated::group: dehydrated
-
-dehydrated::etc_directory: /etc/dehydrated
-dehydrated::home_directory: /home/dehydrated
