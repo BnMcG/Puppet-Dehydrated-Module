@@ -28,5 +28,5 @@ class dehydrated::install {
     owner => $dehydrated::user,
     group => $dehydrated::group,
     recurse => true
-  } ->
+  }
 }
