@@ -1,0 +1,4 @@
+{
+  "LE_HOSTED_ZONE": "<%= $dehydrated::hooks::route53::aws_hosted_zone %>",
+  "LE_AWS_PROFILE": "<%= $dehydrated::hooks::route53::aws_profile %>"
+}
