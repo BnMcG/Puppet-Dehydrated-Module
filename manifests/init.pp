@@ -6,7 +6,7 @@ class dehydrated (
 ) {
   # Include the classes required to setup Dehydrated
   contain dehydrated::install
-  contain dehydrated::configure
+  contain dehydrated::config
 
-  Class['dehydrated::install'] -> Class['dehydrated::configure']
+  Class['dehydrated::install'] -> Class['dehydrated::config']
 }
