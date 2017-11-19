@@ -1,5 +1,5 @@
 # Class for Let's Encrypt certificate resources
-class dehydrated::certificate(
+define dehydrated::certificate(
   $hook,
   $challenge,
   $domain = $title
