@@ -5,6 +5,8 @@ class dehydrated::certificate(
   $domain = $title
 ) {
 
+  include dehydrated
+
   # Ensure present in domains.txt
   concat {"${dehydrated::home_directory}/domains.txt":
     ensure => present

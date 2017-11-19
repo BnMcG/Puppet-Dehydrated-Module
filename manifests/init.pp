@@ -7,7 +7,6 @@ class dehydrated (
   # Include the classes required to setup Dehydrated
   contain dehydrated::install
   contain dehydrated::config
-  contain dehydrated::certificate
 
   Class['dehydrated::install'] -> Class['dehydrated::config']
 }
