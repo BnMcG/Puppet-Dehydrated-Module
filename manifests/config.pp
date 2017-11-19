@@ -7,6 +7,14 @@ class dehydrated::config {
     group  => $dehydrated::group
   }
 
+  # Ensure that the global config file is present
+  file { "${dehydrated::home_directory}/config":
+    ensure  => file,
+    owner   => $dehydrated::user,
+    group   => $dehydrated::group,
+    content => epp('dehydrated/global.config.epp')
+  }
+
   # Ensure a hooks directory exists. Any hooks are stored here
   file { "${dehydrated::home_directory}/hooks":
     ensure  => directory,

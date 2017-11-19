@@ -35,9 +35,12 @@ define dehydrated::certificate(
 
   file { "/etc/dehydrated/certs/${domain}/config":
     ensure  => file,
-    content => epp('dehydrated/config.epp', {
+    content => epp('dehydrated/domain.config.epp', {
       'hook_path' => $hook_path
     }),
     require => File["/etc/dehydrated/certs/${domain}/"]
   }
+
+  # Run once to generate initial certificate
+
 }
