@@ -30,4 +30,15 @@ class dehydrated::install {
     group   => $dehydrated::group,
     recurse => true
   }
+
+  # Cron job
+  cron { 'dehydrated':
+    command  => "/etc/dehydrated/dehydrated --cron --config ${dehydrated::home_directory}/config",
+    user     => $dehydrated::user,
+    hour     => 3,
+    minute   => 45,
+    month    => '*',
+    monthday => '*',
+    weekday  => '0'
+  }
 }
