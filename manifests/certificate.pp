@@ -10,7 +10,7 @@ define dehydrated::certificate(
 
   # Change hooks to paths
   case $hook {
-    'route53': { $hook = "${dehydrated::home_directory}/hooks/route53/route53.sh" }
+    'route53': { $hook_path = "${dehydrated::home_directory}/hooks/route53/route53.sh" }
   }
 
   # Ensure present in domains.txt
@@ -26,6 +26,8 @@ define dehydrated::certificate(
   # Custom configuration
   file { "/etc/dehydrated/certs/${domain}/config":
     ensure => file,
-    content => epp('dehydrated/config.epp')
+    content => epp('dehydrated/config.epp', [
+      'hook_path' => $hook_path
+    ])
   }
 }

@@ -22,7 +22,7 @@ WELLKNOWN="<%= $dehydrated::certificate::wellknown %>"
 # BASEDIR and WELLKNOWN variables are exported and can be used in an external program
 # default: <unset>
 <% if $dehydrated::certificate::hook != '' { -%>
-HOOK="<%= $dehydrated::certificate::hook %>"
+HOOK="<%= $hook_path %>"
 <% } -%>
 
 # Chain clean_challenge|deploy_challenge arguments together into one hook call per certificate (default: no)
