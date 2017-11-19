@@ -8,10 +8,15 @@ class dehydrated::config {
   }
 
   # Ensure that the default well-known directory is present
+  file {'/var/www/':
+    ensure => directory
+  }
+  
   file { '/var/www/dehydrated':
     ensure => directory,
     owner => $dehydrated::user,
     group => $dehydrated::group,
+    require => File['/var/www']
   }
 
   # Ensure that the global config file is present
