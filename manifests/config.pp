@@ -1,11 +1,11 @@
 # Class that ensures that Dehydrated configuration is correct
 class dehydrated::config {
   # Ensure that the domains.txt file is present
-  file { "${dehydrated::home_directory}/domains.txt":
-    ensure => present,
-    owner  => $dehydrated::user,
-    group  => $dehydrated::group
-  }
+  # file { "${dehydrated::home_directory}/domains.txt":
+  #  ensure => present,
+  #  owner  => $dehydrated::user,
+  #  group  => $dehydrated::group
+  #}
 
   # Ensure that the default well-known directory is present
   file {'/var/www/':
