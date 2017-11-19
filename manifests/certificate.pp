@@ -26,8 +26,8 @@ define dehydrated::certificate(
   # Custom configuration
   file { "/etc/dehydrated/certs/${domain}/config":
     ensure => file,
-    content => epp('dehydrated/config.epp', [
+    content => epp('dehydrated/config.epp', {
       'hook_path' => $hook_path
-    ])
+    })
   }
 }
