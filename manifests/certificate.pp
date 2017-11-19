@@ -36,7 +36,9 @@ define dehydrated::certificate(
   file { "${dehydrated::etc_directory}/certs/${domain}/config":
     ensure  => file,
     content => epp('dehydrated/domain.config.epp', {
-      'hook_path' => $hook_path
+      'hook_path' => $hook_path,
+      'challenge' => $challenge,
+      'wellknown' => $wellknown
     }),
     require => File["/etc/dehydrated/certs/${domain}/"]
   }
