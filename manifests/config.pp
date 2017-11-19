@@ -1,3 +1,4 @@
+# Class that ensures that Dehydrated configuration is correct
 class dehydrated::config {
   # Ensure that the domains.txt file is present
   file { "${dehydrated::home_directory}/domains.txt":
@@ -8,17 +9,17 @@ class dehydrated::config {
 
   # Ensure a hooks directory exists. Any hooks are stored here
   file { "${dehydrated::home_directory}/hooks":
-    ensure => directory,
-    owner  => $dehydrated::user,
-    group  => $dehydrated::group,
+    ensure  => directory,
+    owner   => $dehydrated::user,
+    group   => $dehydrated::group,
     recurse => true
   }
 
   # Ensure that certs directory exists
   file { "${dehydrated::etc_directory}/certs":
     ensure => directory,
-    owner => $dehydrated::user,
-    mode  => '0700'
+    owner  => $dehydrated::user,
+    mode   => '0700'
   }
 
   # Ensure that Dehydrated is executable
