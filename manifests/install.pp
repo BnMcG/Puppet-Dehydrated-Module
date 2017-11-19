@@ -33,7 +33,7 @@ class dehydrated::install {
 
   # Cron job
   cron { 'dehydrated':
-    command  => "/etc/dehydrated/dehydrated --cron --config ${dehydrated::home_directory}/config",
+    command  => "${dehydrated::etc_directory}/dehydrated --cron --config ${dehydrated::home_directory}/config",
     user     => $dehydrated::user,
     hour     => 3,
     minute   => 45,

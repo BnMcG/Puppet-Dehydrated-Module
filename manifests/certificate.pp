@@ -27,13 +27,13 @@ define dehydrated::certificate(
   # Custom configuration
 
   # Ensure that domain directory exists
-  file { "/etc/dehydrated/certs/${domain}/":
+  file { "${dehydrated::etc_directory}/certs/${domain}/":
     ensure => directory,
     owner  => $dehydrated::user,
     mode   => '0700'
   }
 
-  file { "/etc/dehydrated/certs/${domain}/config":
+  file { "${dehydrated::etc_directory}/certs/${domain}/config":
     ensure  => file,
     content => epp('dehydrated/domain.config.epp', {
       'hook_path' => $hook_path
@@ -42,5 +42,8 @@ define dehydrated::certificate(
   }
 
   # Run once to generate initial certificate
-
+  exec { "${dehydrated::etc_directory}/dehydrated --cron --config ${dehydrated::home_directory}/config":
+    user => $dehydrated::user,
+    creates => "${dehydrated::etc_directory}/certs/${domain}/fullchain.pem"
+  }
 }
