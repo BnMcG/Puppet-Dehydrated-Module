@@ -6,7 +6,7 @@ define dehydrated::certificate(
   $wellknown = '/var/www/html'
 ) {
 
-  include dehydrated
+  contain dehydrated
 
   # Change hooks to paths
   case $hook {
