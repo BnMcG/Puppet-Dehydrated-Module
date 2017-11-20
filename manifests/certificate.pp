@@ -6,8 +6,6 @@ define dehydrated::certificate(
   $wellknown = '/var/www/html'
 ) {
 
-  contain dehydrated
-
   # Change hooks to paths
   case $hook {
     'route53': { $hook_path = "${dehydrated::home_directory}/hooks/route53/route53.sh" }
