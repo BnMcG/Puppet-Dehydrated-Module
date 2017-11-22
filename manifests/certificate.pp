@@ -19,7 +19,7 @@ define dehydrated::certificate(
   }
 
   concat::fragment { $domain:
-    target  => "${dehydrated::home_directory}/domains.txt",
+    target  => "${domain}-domains.txt",
     content => $domain
   }
 
