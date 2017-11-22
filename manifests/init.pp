@@ -9,4 +9,9 @@ class dehydrated (
   contain dehydrated::config
 
   Class['dehydrated::install'] -> Class['dehydrated::config']
+
+  # Ensure present in domains.txt
+  concat { "${dehydrated::home_directory}/domains.txt":
+    ensure => present
+  }
 }
