@@ -38,7 +38,8 @@ define dehydrated::certificate(
   }
 
   # Run once to generate initial certificate
-  exec { "${dehydrated::etc_directory}/dehydrated --cron --config ${dehydrated::home_directory}/config":
+  exec { "cron-${domain}":
+    command => "${dehydrated::etc_directory}/dehydrated --cron --config ${dehydrated::home_directory}/config",
     user    => $dehydrated::user,
     creates => "${dehydrated::etc_directory}/certs/${domain}/fullchain.pem",
     require => Concat::Fragment['domain']
