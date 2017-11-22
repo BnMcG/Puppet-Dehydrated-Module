@@ -42,6 +42,6 @@ define dehydrated::certificate(
     command => "${dehydrated::etc_directory}/dehydrated --cron --config ${dehydrated::home_directory}/config",
     user    => $dehydrated::user,
     creates => "${dehydrated::etc_directory}/certs/${domain}/fullchain.pem",
-    require => Concat::Fragment['domain']
+    require => Concat::Fragment[$domain]
   }
 }
