@@ -13,6 +13,11 @@ define dehydrated::certificate(
   }
 
   # Ensure present in domains.txt
+  concat { "${domain}-domains.txt":
+    ensure => present,
+    path => "${dehydrated::home_directory}/domains.txt"
+  }
+
   concat::fragment { $domain:
     target  => "${dehydrated::home_directory}/domains.txt",
     content => $domain
