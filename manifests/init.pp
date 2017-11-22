@@ -12,6 +12,7 @@ class dehydrated (
 
   # Ensure present in domains.txt
   concat { "${dehydrated::home_directory}/domains.txt":
-    ensure => present
+    ensure         => present,
+    ensure_newline => true
   }
 }
